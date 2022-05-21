@@ -76,3 +76,16 @@ function slug($text = '')
    $text = $text_ori = preg_replace('/\-{2,}/', '-', $text);
    return $text;
 }
+
+// menghitung total pengunjung dengan sederhana
+$filename = 'counter.txt';
+function counter()
+{
+   global $filename;
+   if (file_exists($filename)) {
+      $value = file_get_contents($filename);
+   } else {
+      $value = 0;
+   }
+   file_put_contents($filename, ++$value);
+}
